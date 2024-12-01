@@ -1,0 +1,112 @@
+%
+% 総合研究論文サンプルファイル
+%
+% ・和文題名, 英文題名, 学籍番号, 姓, 名, 指導教員名, 職位 を記入する
+%   (====== で囲まれた範囲).
+% ・顔写真 (履歴書の余りなど) を用意し, 所定の位置に貼る.
+%   デジタルデータ (JPG 等) があれば, それを使ってもよい (下記設定変更).
+%
+\documentclass[a4j,12pt]{jarticle}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage[dvipdfmx]{graphicx}%画像挿入
+\usepackage{theorem}%定義や定理の環境
+\usepackage{url}
+%必要なパッケージを追加
+
+
+
+%========================================
+% 各自の内容を記述
+%
+\def\YEAR{20XX}  % 総合研究着手年度
+\def\TITLE{フェルマーの定理と私}  % 和文題名
+\def\ETITLE{Fermat's theorem and me}  % 英文題名
+\def\NUMBER{BV?????}  % 学籍番号
+\def\FAMILYNAME{\ruby{数理}{すうり}}  % 姓
+\def\FIRSTNAME{\ruby{科太郎}{かたろう}}  % 名
+\def\ADVISER{大宮 シス子}  % 指導教員 氏名
+\def\POSITION{教授}  % 指導教員 職位
+\def\JPG{SIT.png}  % 顔写真ファイル名 (なければ空白で可)
+%
+% 顔写真の設定: 下のいずれかの行を活かし, 他方をコメントアウト
+%
+\def\FACE{\WAKU}   % 枠線のみ表示
+%\def\FACE{\IMAGE}  % 顔写真ファイル使用時
+%========================================
+% ルビの定義
+%
+\def\ruby#1#2{%
+\leavevmode
+\setbox0=\hbox{#1}\setbox1=\hbox{\scriptsize#2}%
+\ifdim\wd0>\wd1 \dimen0=\wd0 \else \dimen0=\wd1 \fi
+\hbox{\kanjiskip=\fill
+ \vbox{\hbox to \dimen0{\scriptsize \hfil#2\hfil}%
+ \nointerlineskip
+ \hbox to \dimen0{\hfil#1\hfil}}}}
+%
+% 写真の定義
+\def\WAKU{\framebox[30mm]{\rule{0mm}{38mm}\raisebox{18mm}{\smash{
+ \parbox{25mm}{\begin{center}顔写真\\ 横3cm\\ ×\\ 縦4cm\end{center}}}}}
+ \\[7mm]}
+\def\IMAGE{\parbox{33mm}{\rule{0mm}{38mm}\raisebox{18mm}{\smash{
+ \parbox{31mm}{\includegraphics[height=40mm,keepaspectratio]{\JPG}}}}}
+ \\[12mm]}
+%----------------------------------------
+\begin{document}
+\thispagestyle{empty}
+\begin{center}
+ \YEAR{}年度 \\
+ 芝浦工業大学\quad システム理工学部 \\
+ 数理科学科 \\[12mm]
+ \huge 総合研究論文
+\end{center}
+\vspace{16mm}\par
+%
+% 題名
+%
+\noindent\smash{
+ \begin{minipage}[t]{.98\linewidth}
+  \begin{center}
+   \Huge\bf\TITLE  % 和文題名
+   \\[1ex]
+   \Large\bf\ETITLE  % 英文題名
+  \end{center}
+ \end{minipage}}
+\vspace{47mm}\par
+%
+% 顔写真, 学籍番号, 氏名, 指導教員
+%
+\begin{center}
+ \FACE                                        % 顔写真
+ \Large \NUMBER                     \\[7mm]   % 学籍番号
+ \huge  \FAMILYNAME\quad \FIRSTNAME \\[15mm]  % 氏名
+ \Large 指導教員： \ADVISER ~ \POSITION
+\end{center}
+\vfill
+\newpage
+\setcounter{page}{1}
+\tableofcontents	%目次
+\thispagestyle{empty}
+\newpage
+%%%%%%↓ここから本文↓%%%%%%
+\section{はじめに}
+\newpage
+%
+\section{つぎに}
+\subsection{小節のタイトル}
+\subsubsection{小小節のタイトル}
+\newpage
+%
+\section{おわりに}
+
+\newpage
+
+%参考文献
+\begin{thebibliography}{99}
+\bibitem{a}【本の場合】著者名，タイトル，出版社，出版年．
+\bibitem{b}【論文の場合】著者名，タイトル，雑誌名，巻・号，出版年度，頁．
+\bibitem{c}【Webページの場合】 タイトル，ページ制作者（機関）等，URL: \url{http://www.shibaura-it.ac.jp/}，最終アクセス日時: 2021/12/28 16:33．
+\end{thebibliography}
+
+\end{document}
